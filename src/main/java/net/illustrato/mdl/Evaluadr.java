@@ -1,11 +1,13 @@
 
 package net.illustrato.mdl;
 
+import java.io.Serializable;
+
 /**
  * Esta clase manipula informacion sobre el evaluadorr.
  * @author adalbertdavidaroca
  */
-public class Evaluadr {
+public class Evaluadr implements Serializable{
     
      
     /**

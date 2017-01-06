@@ -5,6 +5,7 @@
  */
 package net.illustrato.mdl;
 
+
 import java.io.Serializable;
 
 /**
@@ -154,9 +155,9 @@ public class CompLabo implements Serializable{
     public void setPupeLogr(int pupeLogr) {
         this.pupeLogr = pupeLogr;
     }
-    
-    
-    
-    
+
+   
+
+   
     
 }
