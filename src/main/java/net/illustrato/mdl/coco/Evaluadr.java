@@ -1,112 +1,105 @@
 
-
-package net.illustrato.mdl;
+package net.illustrato.mdl.coco;
 
 import java.io.Serializable;
 
 /**
- * Esta clase se usa para manipular los datos correspondientes al Evaluado.
- * 
+ * Esta clase manipula informacion sobre el evaluadorr.
  * @author adalbertdavidaroca
  */
-public class Evaluado implements Serializable{
+public class Evaluadr implements Serializable{
     
-    
+     
     /**
-    * Se almacena el nombre completo del evaluado.   
+    * Se almacena el nombre completo del evaluador.   
     */
     private String nombComp;
     
     /**
-     * Se almacena el registro laboral del evaluado.
+     * Se almacena el registro laboral del evaluador.
      */
     private String regiLabo;
     
     /**
-     * Se almacena el cargo del evaluado
+     * Se almacena el cargo del evaluador
      * 
      */
     
     private String cargo;
     
     /**
-     * Se almacena el nivel jerarquico del evaluado
+     * Se almacena el nivel jerarquico del evaluador
      */
     
     private String niveJera;
     
     /**
-     * Se almacena la gerencia del evaluado
+     * Se almacena la gerencia del evaluador
      */
     
     private String gerencia;
     
     /**
-     * Se almacena el departamento o direccion del evaluado
+     * Se almacena el departamento o direccion del evaluador
      */
     
     private String departam;
     
     /**
-     * Se almacena el Area Funcional del evaluado
+     * Se almacena el Area Funcional del evaluador
      */
     
     private String areaFunc;
     
     /**
-     * Se almacena el proceso/subprocesos del evaluado
+     * Se almacena el proceso/subprocesos del evaluador
      */
     private String subProc;
-    
-    /**
-     * Proposito principal del cargo que desempleña el evaluado
-     */
-    private String prprCarg;
 
     /**
-     * @return nombComp el nombre completo del evaluado
+     * @return nombComp el nombre completo del evaluador
      */
     public String getNombComp() {
         return nombComp;
     }
 
     /**
-     * @param nombComp para actualizar el nombre completo del evaluado
+     * @param nombComp para actualizar el nombre completo del evaluador
      */
     public void setNombComp(String nombComp) {
         this.nombComp = nombComp;
     }
 
     /**
-     * @return  regiLabo el registro laboral del evaluado. 
+     * @return  regiLabo el registro laboral del evaluador. 
      */
     public String getRegiLabo() {
         return regiLabo;
     }
 
     /**
-     * @param regiLabo para actualizar el Registro Laboral del evaluado.
+     * @param regiLabo para actualizar el Registro Laboral del evaluador.
      */
     public void setRegiLabo(String regiLabo) {
         this.regiLabo = regiLabo;
     }
 
     /**
-     * @return cargo el cargo del evaluado
+     * @return cargo el cargo del evaluador
      */
     public String getCargo() {
         return cargo;
     }
 
     /**
-     * @param cargo para actualizar el cargo del evaluado.
+     * @param cargo para actualizar el cargo del evaluador.
      */
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
     /**
-     * @return  niveJera el nivel jerarquico del evaluado.
+     * @return  niveJera el nivel jerarquico del evaluador.
      */
     public String getNiveJera() {
         return niveJera;
@@ -120,7 +113,7 @@ public class Evaluado implements Serializable{
     }
 
     /**
-     * @return  gerencia la gerencia del evaluado.
+     * @return  gerencia la gerencia del evaluador.
      */
     public String getGerencia() {
         return gerencia;
@@ -134,63 +127,45 @@ public class Evaluado implements Serializable{
     }
 
     /**
-     * @return  departam el departamento del evaluado.
+     * @return  departam el departamento del evaluador.
      */
     public String getDepartam() {
         return departam;
     }
 
     /**
-     * @param departam para actualizar el departamento del evaluado.
+     * @param departam para actualizar el departamento del evaluador.
      */
     public void setDepartam(String departam) {
         this.departam = departam;
     }
 
     /**
-     * @return areaFunc el area funcional del evaluado.
+     * @return areaFunc el area funcional del evaluador.
      */
     public String getAreaFunc() {
         return areaFunc;
     }
 
     /**
-     * @param areaFunc para actualizar el area funcional del evaluado.
+     * @param areaFunc para actualizar el area funcional del evaluador.
      */
     public void setAreaFunc(String areaFunc) {
         this.areaFunc = areaFunc;
     }
 
     /**
-     * @return  subProc el proceso/subproceso del evaluado
+     * @return  subProc el proceso/subproceso del evaluador
      */
     public String getSubProc() {
         return subProc;
     }
 
     /**
-     * @param subProc para actualizar proceso/subproceso del evaluado
+     * @param subProc para actualizar proceso/subproceso del evaluador
      */
     public void setSubProc(String subProc) {
         this.subProc = subProc;
     }
-
-    /**
-     * @return  prprCarg el proposito principal del cargo del evaluado
-     */
-    public String getPrprCarg() {
-        return prprCarg;
-    }
-
-    /**
-     * @param prprCarg para actualizar el proposito principal del cargo.
-     * 
-     */
-    public void setPrprCarg(String prprCarg) {
-        this.prprCarg = prprCarg;
-    }
-    
-    
-    
     
 }

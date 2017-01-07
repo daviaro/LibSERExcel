@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.logging.Level;
 import net.illustrato.ctrl.CtrlCoco;
 import net.illustrato.intfz.ReporteExcel;
-import net.illustrato.mdl.CompLabo;
-import net.illustrato.mdl.Evaluado;
-import net.illustrato.mdl.Evaluadr;
-import net.illustrato.mdl.TimoEval;
+import net.illustrato.mdl.coco.CompLabo;
+import net.illustrato.mdl.coco.Evaluado;
+import net.illustrato.mdl.coco.Evaluadr;
+import net.illustrato.mdl.coco.TimoEval;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
