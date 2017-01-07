@@ -156,6 +156,20 @@ public class CtrlCoco implements Serializable, ReporteExcel {
     }
 
     /**
+     * Metodo para obtener puntos por periodo esperados y logrados totales de
+     * los compromisos laborales
+     */
+    private void sumPupe() {
+        LOGGER.info("Inicia la totalizacion de los puntos");
+        for (CompLabo compLabo : this.listCols) {
+            LOGGER.debug("Puntos esperados:{} y puntos logrados:{} por objetivo estrategico {}", compLabo.getPupeEspe(), compLabo.getPupeLogr(), compLabo.getObjeEstr());
+            this.totaPulo += compLabo.getPupeLogr();
+            this.totaPues += compLabo.getPupeEspe();
+        }
+        LOGGER.debug("el total de puntos esperados {} y el total de puntos logrados ", this.totaPues, this.totaPulo);
+    }
+
+    /**
      *
      * Este metodo toma la informacion que se diligencia en la clase y genera un
      * archivo en excel a partir de una plantilla.
@@ -181,11 +195,6 @@ public class CtrlCoco implements Serializable, ReporteExcel {
         File archDest = null;
         //ruta completa de la plantilla
         String pathDefi = pathDeex + File.separator + nombResa;
-        //Fila inicial
-        int filaInit = 0;
-        //Celda incial
-        int celdInit = 1;
-
         //Registra del archivo de excel
         Row row = null;
         //Celda en el archivo de excel
@@ -194,9 +203,19 @@ public class CtrlCoco implements Serializable, ReporteExcel {
         Sheet sheet = null;
         //Numero de hojas en el libro de excel
         int numberOfSheets;
+        //Es evaluacion definitiva
+        boolean isevDefi = false;
+
+        //Es evaluacion parcial
+        boolean isevParc = false;
 
         //Constantes
         final String NOMBRE_HOJA = "COMPROMISOS LABORALES";
+
+        // Fila y columna para 
+        int fila = 0;
+
+        int columna = 0;
 
         try {
             archOrig = new File(pathPlan);
@@ -261,69 +280,316 @@ public class CtrlCoco implements Serializable, ReporteExcel {
                     LOGGER.info("Hoja seleccionada:{}", NOMBRE_HOJA);
                     sheet = workbook.getSheet(NOMBRE_HOJA);
 
-                    LOGGER.debug("Se va actualizar la linea 8 celda 3");
+                    LOGGER.debug("llenar informacion del evaluado");
+                    LOGGER.debug("Se va actualizar la linea 6 celda 3. Valor Nombre Completo: {} ", evaluado.getNombComp());
                     row = sheet.getRow(6);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getNombComp());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 7 celda 3. Valor Registro Laboral: {} ", evaluado.getRegiLabo());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(7);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getRegiLabo());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 8 celda 3. Valor Registro Laboral: {} ", evaluado.getCargo());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(8);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getCargo());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 9 celda 3. Valor Nivel Jerarquico: {} ", evaluado.getNiveJera());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(9);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getNiveJera());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 10 celda 3. Valor Gerencia: {} ", evaluado.getGerencia());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(10);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getGerencia());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor Departamento: {} ", evaluado.getDepartam());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(11);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getDepartam());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor Area Funcional: {} ", evaluado.getAreaFunc());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(12);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getAreaFunc());
-                    
-                    row =null;
+
+                    LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor subproceso: {} ", evaluado.getSubProc());
+                    row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(13);
                     cell = row.getCell(3);
 
                     cell.setCellValue(evaluado.getSubProc());
-                    
-                   
+
+                    LOGGER.debug("Se inicia la escritura de evaluador ");
+
+                    LOGGER.debug("Se va actualizar la linea 6 celda 12. Valor nombre completo: {}", evaluadr.getNombComp());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(6);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getNombComp());
+
+                    LOGGER.debug("Se va actualizar la linea 7 celda 12. Valor Registro laboral: {}", evaluadr.getRegiLabo());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(7);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getRegiLabo());
+
+                    LOGGER.debug("Se va actualizar la linea 8 celda 12. Valor Cargo: {}", evaluadr.getCargo());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(8);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getCargo());
+
+                    LOGGER.debug("Se va actualizar la linea 9 celda 12. Valor nivel jerarquico: {}", evaluadr.getNiveJera());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(9);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getNiveJera());
+
+                    LOGGER.debug("Se va actualizar la linea 10 celda 12. Valor gerencia: {}", evaluadr.getGerencia());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(10);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getGerencia());
+
+                    LOGGER.debug("Se va actualizar la linea 11 celda 12. Valor departamento: {}", evaluadr.getDepartam());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(11);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getDepartam());
+
+                    LOGGER.debug("Se va actualizar la linea 12 celda 12. Valor area funcional: {}", evaluadr.getAreaFunc());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(12);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getAreaFunc());
+
+                    LOGGER.debug("Se va actualizar la linea 13 celda 12. Valor subproceso: {}", evaluadr.getSubProc());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(13);
+                    cell = row.getCell(12);
+
+                    cell.setCellValue(evaluadr.getSubProc());
+
+                    LOGGER.info("Finalizo escritura de evaluador ");
+
+                    LOGGER.info("Se inicia la escritura de tipos y motivos de evaluacion ");
+
+                    if (timoEval.getEvalDefi() != null && !timoEval.getEvalDefi().isEmpty()) {
+                        isevDefi = true;
+                    }
+
+                    if (timoEval.getEvalParc() != null && !timoEval.getEvalParc().isEmpty()) {
+                        isevParc = true;
+                    }
+
+                    if (isevParc && isevDefi) {
+                        throw new Exception("Se debe elegir diligenciar, evaluacion parcial o definitiva. No es posible las dos");
+                    }
+
+                    LOGGER.debug("Se va actualizar la linea 15 celda 1. Valor Evaluacion Definitiva: {}", timoEval.getEvalDefi());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(15);
+                    cell = row.getCell(1);
+
+                    cell.setCellValue("EVALUACION DEFINITIVA: " + (timoEval.getEvalDefi() != null ? timoEval.getEvalDefi() : ""));
+
+                    LOGGER.debug("Se va actualizar la linea 15 celda 10. Valor Evaluacion Parcial: {}", timoEval.getEvalParc());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(15);
+                    cell = row.getCell(8);
+
+                    cell.setCellValue("EVALUACION DEFINITIVA: " + (timoEval.getEvalParc() != null ? timoEval.getEvalParc() : ""));
+
+                    LOGGER.debug("Se va actualizar la linea 16 celda 3. Valor Fecha Desde: {}", timoEval.getPeriDesd());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(16);
+                    cell = row.getCell(3);
+
+                    cell.setCellValue("DESDE: " + (timoEval.getPeriDesd() != null ? timoEval.getPeriDesd() : ""));
+
+                    LOGGER.debug("Se va actualizar la linea 16 celda 8. Valor Fecha Desde: {}", timoEval.getPeriHast());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(16);
+                    cell = row.getCell(8);
+
+                    cell.setCellValue("HASTA: " + (timoEval.getPeriHast() != null ? timoEval.getPeriHast() : ""));
+
+                    LOGGER.info("Se finaliza la escritura de tipos y motivos de evaluacion ");
+
+                    LOGGER.info("Se inicia la escritura del proposito principal del cargo ");
+
+                    LOGGER.debug("Se va actualizar la linea 18 celda 1. Valor  Proposito principal del cargo {}", evaluado.getPrprCarg());
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(18);
+                    cell = row.getCell(1);
+
+                    cell.setCellValue(evaluado.getPrprCarg());
+
+                    LOGGER.debug("Se finaliza la escritura del prosposito principal del cargo");
+
+                    LOGGER.debug("Se inicia la  escritura de los compromisos laborales");
+
+                    if (listCols.size() > 5) {
+                        throw new Exception("El reporte soporta maximo 5 compromisos. Para aceptar compromisos adicionales se debe modifcar la plantilla.");
+                    }
+
+                    sumPupe();
+
+                    fila = 22;
+
+                    for (CompLabo compLabo : this.listCols) {
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 1. Valor  objetivo estrategico {}", fila, compLabo.getObjeEstr());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(1);
+
+                        cell.setCellValue(compLabo.getObjeEstr());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 3. Valor  compromisos del area {}", fila, compLabo.getCompArea());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(3);
+
+                        cell.setCellValue(compLabo.getCompArea());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 6. Valor  compromisos funciones cargo {}", fila, compLabo.getCompFuca());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(6);
+
+                        cell.setCellValue(compLabo.getCompFuca());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 9. Valor  meta {}", fila, compLabo.getMeta());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(9);
+
+                        cell.setCellValue(compLabo.getMeta());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 13. Valor  evidencia {}", fila, compLabo.getEvidencia());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(13);
+
+                        cell.setCellValue(compLabo.getEvidencia());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 15. Valor  puntos esperados {}", fila, compLabo.getPupeEspe());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(15);
+
+                        cell.setCellValue(compLabo.getPupeEspe());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 17. Valor  puntos logrados {}", fila, compLabo.getPupeLogr());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(17);
+
+                        cell.setCellValue(compLabo.getPupeLogr());
+
+                        fila++;
+
+                    }
+                    LOGGER.info("Fin de la actualizacion de compromisos");
+                    LOGGER.info("Se procede a la actualizacion de puntajes totales");
+
+                    LOGGER.debug("Se va actualizar la linea 27 celda 15. Valor  puntos totales esperados {}", this.totaPues);
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(27);
+                    cell = row.getCell(15);
+
+                    cell.setCellValue(this.totaPues);
+
+                    LOGGER.debug("Se va actualizar la linea 27 celda 18. Valor  puntos totales logrados {}",  this.totaPulo);
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(27);
+                    cell = row.getCell(17);
+
+                    cell.setCellValue(this.totaPulo);
+
                     workbook.write(fos);
 
                 } else {
@@ -332,7 +598,7 @@ public class CtrlCoco implements Serializable, ReporteExcel {
 
             } catch (Exception e) {
                 System.out.println("" + e.getMessage());
-            } 
+            }
 
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
