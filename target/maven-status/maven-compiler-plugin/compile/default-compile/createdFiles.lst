@@ -1,7 +1,11 @@
-net/illustrato/mdl/Evaluadr.class
+net/illustrato/mdl/core/Evidenci.class
 net/illustrato/ctrl/CtrlCoco.class
-net/illustrato/mdl/Evaluado.class
-net/illustrato/mdl/TimoEval.class
-net/illustrato/mdl/CompLabo.class
+net/illustrato/mdl/coco/CompLabo.class
+net/illustrato/mdl/coco/Evaluadr.class
+net/illustrato/mdl/core/OptuMejo.class
 net/illustrato/intfz/ReporteExcel.class
+net/illustrato/mdl/coco/Evaluado.class
+Pruebas2.class
+net/illustrato/ctrl/CtrlCore.class
+net/illustrato/mdl/coco/TimoEval.class
 Pruebas.class
