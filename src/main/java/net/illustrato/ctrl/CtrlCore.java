@@ -300,7 +300,7 @@ public class CtrlCore implements ReporteExcel, Serializable {
                     LOGGER.debug("Numero de hojas {}", numberOfSheets);
 
                     LOGGER.info("Hoja seleccionada:{}", NOMBRE_HOJA);
-                    sheet = workbook.getSheet(NOMBRE_HOJA);
+                    sheet = workbook.getSheetAt(0);
 
                     fila = 5;
 

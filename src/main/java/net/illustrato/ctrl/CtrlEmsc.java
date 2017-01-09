@@ -26,22 +26,37 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 /**
- * Esta clase permite poblar los datos de los empleados sin calificar y 
- * generar un reporte HU14.
+ * Esta clase permite poblar los datos de los empleados sin calificar y generar
+ * un reporte HU14.
+ *
  * @author adalbertdavidaroca
  */
-public class CtrlEmsc implements ReporteExcel,Serializable{
-    
+public class CtrlEmsc implements ReporteExcel, Serializable {
+
     private static final Logger LOGGER = LogManager.getLogger(CtrlEmsc.class);
-    
+
     /**
      * listado de empleados sin calificar
      */
     private List<Empleado> listEmpl;
 
+    /**
+     * @return the listEmpl
+     */
+    public List<Empleado> getListEmpl() {
+        return listEmpl;
+    }
+
+    /**
+     * @param listEmpl the listEmpl to set
+     */
+    public void setListEmpl(List<Empleado> listEmpl) {
+        this.listEmpl = listEmpl;
+    }
+
     @Override
     public void escribirExcel(String pathPlan, String pathDeex, String nombResa) throws Exception {
-         LOGGER.info("Iniciando escritura del archivo en excel");
+        LOGGER.info("Iniciando escritura del archivo en excel");
 
         LOGGER.debug("Ruta de la plantilla {}", pathPlan);
         LOGGER.debug("Ruta donde se va a escribir la plantilla {} ", pathDeex);
@@ -61,7 +76,7 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
         //Numero de hojas en el libro de excel
         int numberOfSheets;
         //Constantes
-        final String NOMBRE_HOJA = "RESULTADOS EVALUACION";
+        final String NOMBRE_HOJA = "EVALUADOR";
         // Fila y columna para 
         int fila = 0;
         int columna = 0;
@@ -129,17 +144,17 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
                     LOGGER.debug("Numero de hojas {}", numberOfSheets);
 
                     LOGGER.info("Hoja seleccionada:{}", NOMBRE_HOJA);
-                    sheet = workbook.getSheet(NOMBRE_HOJA);
+                    sheet = workbook.getSheetAt(0);
 
                     fila = 2;
 
-                    LOGGER.info("Se inicia con la escritura de las oportunidades de mejora");
+                    LOGGER.info("Se inicia con la escritura de empleados");
 
-                    for (Empleado empleado : this.listEmpl) {
+                    for (Empleado empleado : this.getListEmpl()) {
 
                         if (fila > 5) {
 
-                            copyRow(workbook, sheet, fila - 2, fila - 1);
+                            copyRow(workbook, sheet, fila - 1, fila);
 
                         }
 
@@ -150,9 +165,9 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
                         row = sheet.getRow(fila);
                         cell = row.getCell(0);
 
+
                         cell.setCellValue(empleado.getPeriodo());
 
-                        
                         LOGGER.debug("Se va actualizar la linea {} celda 1. Valor numero registro laboral evaluado {}", fila, empleado.getNumeRlev());
                         row = null;
                         cell = null;
@@ -161,29 +176,120 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
                         cell = row.getCell(1);
 
                         cell.setCellValue(empleado.getNumeRlev());
-                        
-                        
-                        LOGGER.debug("Se va actualizar la linea {} celda 1. Valor nombre completo evaluado {}", fila, empleado.get());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 2. Valor nombre completo evaluado {}", fila, empleado.getNombCoev());
                         row = null;
                         cell = null;
 
                         row = sheet.getRow(fila);
-                        cell = row.getCell(1);
+                        cell = row.getCell(2);
 
-                        cell.setCellValue(empleado.getNumeRlev());
-                        
+                        cell.setCellValue(empleado.getNombCoev());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 3. Valor nombre completo evaluador {}", fila, empleado.getNombCoer());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(3);
+
+                        cell.setCellValue(empleado.getNombCoer());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 4. Valor cargo evaluado {}", fila, empleado.getCargEval());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(4);
+
+                        cell.setCellValue(empleado.getCargEval());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 5. Valor cargo evaluador {}", fila, empleado.getCargEvar());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(5);
+
+                        cell.setCellValue(empleado.getCargEvar());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 6. Valor Nivel jerarquico evaluado {}", fila, empleado.getNijeCaev());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(6);
+
+                        cell.setCellValue(empleado.getNijeCaev());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 7. Valor Gerencia evaluado {}", fila, empleado.getGereEval());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(7);
+
+                        cell.setCellValue(empleado.getGereEval());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Gerencia evaluador {}", fila, empleado.getGereEvdr());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(8);
+
+                        cell.setCellValue(empleado.getGereEvdr());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 9. Valor direccion evaluado {}", fila, empleado.getDireEval());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(9);
+
+                        cell.setCellValue(empleado.getDireEval());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 10. Valor direccion evaluador {}", fila, empleado.getDireEvdr());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(10);
+
+                        cell.setCellValue(empleado.getDireEvdr());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 11. Valor departamento evaluado {}", fila, empleado.getDepaEval());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(11);
+
+                        cell.setCellValue(empleado.getDepaEval());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 12. Valor departamento evaluador {}", fila, empleado.getDepaEvdr());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(12);
+
+                        cell.setCellValue(empleado.getDepaEvdr());
+
+                        LOGGER.debug("Se va actualizar la linea {} celda 13. Valor Novedad {}", fila, empleado.getNovedad());
+                        row = null;
+                        cell = null;
+
+                        row = sheet.getRow(fila);
+                        cell = row.getCell(13);
+
+                        cell.setCellValue(empleado.getNovedad());
 
                         fila++;
 
                     }
 
-                    //Ajustando los formulario
-                    sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));
-
                     LOGGER.info("Fin de la escritura de las oportunidades de mejora");
-
-                   
 
                     workbook.write(fos);
 
@@ -200,8 +306,8 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
             throw new Exception(e.getMessage());
         }
     }
-    
-     private Row copyRow(Workbook workbook, Sheet worksheet, int sourceRowNum, int destinationRowNum) {
+
+    private Row copyRow(Workbook workbook, Sheet worksheet, int sourceRowNum, int destinationRowNum) {
         // Get the source / new row
         Row newRow = worksheet.getRow(destinationRowNum);
         Row sourceRow = worksheet.getRow(sourceRowNum);
@@ -253,5 +359,5 @@ public class CtrlEmsc implements ReporteExcel,Serializable{
         }
         return newRow;
     }
-    
+
 }

@@ -277,7 +277,7 @@ public class CtrlCoco implements Serializable, ReporteExcel {
                     LOGGER.debug("Numero de hojas {}", numberOfSheets);
 
                     LOGGER.info("Hoja seleccionada:{}", NOMBRE_HOJA);
-                    sheet = workbook.getSheet(NOMBRE_HOJA);
+                    sheet = workbook.getSheetAt(0);
 
                     LOGGER.debug("llenar informacion del evaluado");
                     LOGGER.debug("Se va actualizar la linea 6 celda 3. Valor Nombre Completo: {} ", evaluado.getNombComp());
