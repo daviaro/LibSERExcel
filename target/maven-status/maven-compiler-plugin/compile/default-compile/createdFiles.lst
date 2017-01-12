@@ -1,9 +1,13 @@
 net/illustrato/mdl/core/Evidenci.class
 net/illustrato/ctrl/CtrlCoco.class
+net/illustrato/mdl/reto/CompComu.class
+net/illustrato/mdl/reto/CondAsoc.class
 net/illustrato/ctrl/CtrlAgre.class
+net/illustrato/mdl/reto/CompProf.class
 net/illustrato/intfz/ReporteExcel.class
 net/illustrato/ctrl/CtrlCore.class
 Pruebas.class
+net/illustrato/mdl/reto/CompAsis.class
 net/illustrato/ctrl/CtrlEmsc.class
 net/illustrato/mdl/coco/CompLabo.class
 net/illustrato/mdl/emsc/Empleado.class
@@ -15,3 +19,4 @@ net/illustrato/mdl/coco/Evaluado.class
 Pruebas2.class
 Pruebas3.class
 net/illustrato/mdl/coco/TimoEval.class
+net/illustrato/mdl/reto/CompTecn.class

@@ -14,7 +14,12 @@ import net.illustrato.mdl.coco.Evaluadr;
 import net.illustrato.mdl.coco.TimoEval;
 import net.illustrato.mdl.core.Evidenci;
 import net.illustrato.mdl.core.OptuMejo;
+import net.illustrato.mdl.reto.CompAsis;
+import net.illustrato.mdl.reto.CompComu;
 import net.illustrato.mdl.reto.CompExce;
+import net.illustrato.mdl.reto.CompProf;
+import net.illustrato.mdl.reto.CompTecn;
+import net.illustrato.mdl.reto.CondAsoc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -112,6 +117,38 @@ public class CtrlAgre implements ReporteExcel, Serializable {
      * Compromisos con la excelencia
      */
     private CompExce compExce;
+
+    /**
+     * listado de componentes comporamentales comunes
+     */
+    private List<CompComu> listComus;
+    
+    
+     /**
+     * listado de componentes comporamentales Asistenciales
+     */
+    private List<CompAsis> listAsis;
+    
+    
+    
+     /**
+     * listado de componentes comporamentales Tecnicos
+     */
+    private List<CompTecn> listTecn;
+    
+    
+    
+     /**
+     * listado de componentes comporamentales profesionales
+     */
+    private List<CompProf> listPro;
+    
+    
+    /**
+     * Tipo Competencia comportamental
+     */
+    
+    private String tipoCoco;
 
     /**
      * @return evaluado Toda la informacion que requiere la HU3 sobre el
@@ -337,6 +374,97 @@ public class CtrlAgre implements ReporteExcel, Serializable {
     public void setCompExce(CompExce compExce) {
         this.compExce = compExce;
     }
+
+    /**
+     *
+     * @return listComus listado de componentes comportamentales comunes
+     *
+     */
+    public List<CompComu> getListComus() {
+        return listComus;
+    }
+
+    /**
+     *
+     * @param listComus actulizar componentes comportamentales comunes
+     */
+    public void setListComus(List<CompComu> listComus) {
+        this.listComus = listComus;
+    }
+    
+    /**
+     * 
+     * @return listAsis lista de compotencias comportamentales asistenciales
+     */
+
+    public List<CompAsis> getListAsis() {
+        return listAsis;
+    }
+
+    /**
+     * 
+     * @param listAsis para actualizar la lista de compotencias comportamentales 
+     * asistenciales
+     */
+    public void setListAsis(List<CompAsis> listAsis) {
+        this.listAsis = listAsis;
+    }
+
+    
+    /**
+     * 
+     * @return listTecn lista de competencias comportamentales tecnicas
+     */
+    public List<CompTecn> getListTecn() {
+        return listTecn;
+    }
+    
+    /**
+     * 
+     * @param listTecn para actualizar lista de competencias comportamentales
+     * tecnicas
+     */
+
+    public void setListTecn(List<CompTecn> listTecn) {
+        this.listTecn = listTecn;
+    }
+
+    
+    /**
+     * 
+     * @return listPro lista de competencias comportamentales profesionales
+     */
+    public List<CompProf> getListPro() {
+        return listPro;
+    }
+
+    /**
+     * 
+     * @param listPro actualizar el listado de compotencias comportamentales
+     * profesionales
+     */
+    public void setListPro(List<CompProf> listPro) {
+        this.listPro = listPro;
+    }
+
+    /**
+     * 
+     * @return tipoCoco tipo de competencia comportamental del evaluado
+     */
+    public String getTipoCoco() {
+        return tipoCoco;
+    }
+
+    /**
+     * 
+     * @param tipoCoco actualizar el tipo de competencia comportamental del 
+     * evaluado 
+     */
+    public void setTipoCoco(String tipoCoco) {
+        this.tipoCoco = tipoCoco;
+    }
+    
+    
 
     /**
      * Metodo para obtener puntos por periodo esperados y logrados totales de
@@ -1052,6 +1180,340 @@ public class CtrlAgre implements ReporteExcel, Serializable {
 
     }
 
+    private void hojaCompCoco(Workbook workbook, Sheet sheet) throws Exception {
+
+        // Fila de archivo de excel
+        Row row = null;
+        //Celda en el archivo de excel
+        Cell cell;
+
+        // Fila y columna para 
+        int fila = 6;
+        int fila2 = 6;
+        int columna = 0;
+
+        try {
+            LOGGER.info("Se inicia la escritura de componentes comportamentales comunes");
+
+            for (CompComu compComu : listComus) {
+                LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compComu.getEncaCocc());
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(1);
+                cell.setCellValue(compComu.getEncaCocc() + " " + compComu.getDescCocc());
+
+                for (CondAsoc condAsoc : compComu.getListCoas()) {
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(2);
+                    cell.setCellValue(condAsoc.getDescrpci());
+
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(3);
+                    cell.setCellValue(condAsoc.getPuntaje());
+
+                    fila2++;
+                }
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(4);
+                cell.setCellValue(compComu.getCompCrit());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(5);
+                cell.setCellValue(compComu.getCompAcep());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(6);
+                cell.setCellValue(compComu.getCompDese());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila2);
+                cell = row.getCell(3);
+                cell.setCellValue(compComu.getPromPunt());
+
+                fila2 += 2;
+                fila = fila2;
+
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception("Se genera error en la hoja componentes comportamentales comunes [" + e.getMessage() + "]");
+
+        }
+
+    }
+    
+    private void hojaCompCoas(Workbook workbook, Sheet sheet) throws Exception {
+
+        // Fila de archivo de excel
+        Row row = null;
+        //Celda en el archivo de excel
+        Cell cell;
+
+        // Fila y columna para 
+        int fila = 6;
+        int fila2 = 6;
+        int columna = 0;
+
+        try {
+            LOGGER.info("Se inicia la escritura de componentes asistenciales comunes");
+
+            for (CompAsis compAsis : listAsis) {
+                LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compAsis.getEncaCocc());
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(1);
+                cell.setCellValue(compAsis.getEncaCocc() + " " + compAsis.getDescCocc());
+
+                for (CondAsoc condAsoc : compAsis.getListCoas()) {
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(2);
+                    cell.setCellValue(condAsoc.getDescrpci());
+
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(3);
+                    cell.setCellValue(condAsoc.getPuntaje());
+
+                    fila2++;
+                }
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(4);
+                cell.setCellValue(compAsis.getCompCrit());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(5);
+                cell.setCellValue(compAsis.getCompAcep());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(6);
+                cell.setCellValue(compAsis.getCompDese());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila2);
+                cell = row.getCell(3);
+                cell.setCellValue(compAsis.getPromPunt());
+
+                fila2 += 2;
+                fila = fila2;
+
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception("Se genera error en la hoja componentes comportamentales Asistenciales [" + e.getMessage() + "]");
+
+        }
+
+    }
+    
+    
+    private void hojaCompCote(Workbook workbook, Sheet sheet) throws Exception {
+
+        // Fila de archivo de excel
+        Row row = null;
+        //Celda en el archivo de excel
+        Cell cell;
+
+        // Fila y columna para 
+        int fila = 6;
+        int fila2 = 6;
+        int columna = 0;
+
+        try {
+            LOGGER.info("Se inicia la escritura de componentes comportamentales Tecnicos");
+
+            for (CompTecn compTecn : listTecn) {
+                LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compTecn.getEncaCocc());
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(1);
+                cell.setCellValue(compTecn.getEncaCocc() + " " + compTecn.getDescCocc());
+
+                for (CondAsoc condAsoc : compTecn.getListCoas()) {
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(2);
+                    cell.setCellValue(condAsoc.getDescrpci());
+
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(3);
+                    cell.setCellValue(condAsoc.getPuntaje());
+
+                    fila2++;
+                }
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(4);
+                cell.setCellValue(compTecn.getCompCrit());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(5);
+                cell.setCellValue(compTecn.getCompAcep());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(6);
+                cell.setCellValue(compTecn.getCompDese());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila2);
+                cell = row.getCell(3);
+                cell.setCellValue(compTecn.getPromPunt());
+
+                fila2 += 2;
+                fila = fila2;
+
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception("Se genera error en la hoja componentes comportamentales Tecnicos [" + e.getMessage() + "]");
+
+        }
+
+    }
+    
+    
+    private void hojaCompCopr(Workbook workbook, Sheet sheet) throws Exception {
+
+        // Fila de archivo de excel
+        Row row = null;
+        //Celda en el archivo de excel
+        Cell cell;
+
+        // Fila y columna para 
+        int fila = 6;
+        int fila2 = 6;
+        int columna = 0;
+
+        try {
+            LOGGER.info("Se inicia la escritura de componentes comportamentales Profesionales");
+
+            for (CompProf compProf : listPro) {
+                LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compProf.getEncaCocc());
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(1);
+                cell.setCellValue(compProf.getEncaCocc() + " " + compProf.getDescCocc());
+
+                for (CondAsoc condAsoc : compProf.getListCoas()) {
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(2);
+                    cell.setCellValue(condAsoc.getDescrpci());
+
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila2);
+                    cell = row.getCell(3);
+                    cell.setCellValue(condAsoc.getPuntaje());
+
+                    fila2++;
+                }
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(4);
+                cell.setCellValue(compProf.getCompCrit());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(5);
+                cell.setCellValue(compProf.getCompAcep());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila);
+                cell = row.getCell(6);
+                cell.setCellValue(compProf.getCompDese());
+
+                row = null;
+                cell = null;
+
+                row = sheet.getRow(fila2);
+                cell = row.getCell(3);
+                cell.setCellValue(compProf.getPromPunt());
+
+                fila2 += 2;
+                fila = fila2;
+
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception("Se genera error en la hoja componentes comportamentales Tecnicos [" + e.getMessage() + "]");
+
+        }
+
+    }
+
     @Override
     public void escribirExcel(String pathPlan, String pathDeex, String nombResa) throws Exception {
 
@@ -1071,7 +1533,9 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         Sheet sheet = null;
         //Numero de hojas en el libro de excel
         int numberOfSheets;
-
+        
+        //hoja seleccionada
+        int numHoja=0;
         try {
             archOrig = new File(pathPlan);
 
@@ -1133,17 +1597,51 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                     LOGGER.debug("Numero de hojas {}", numberOfSheets);
 
                     LOGGER.info("Hoja seleccionada Compromisos laborales:{}", 0);
-                    sheet = workbook.getSheetAt(0);
+                    sheet = workbook.getSheetAt(numHoja);
 
                     hojaConsCola(sheet);
 
-                    LOGGER.info("Hoja seleccionada Compromisos de excelencia e innovacion:{}", 5);
-                    sheet = workbook.getSheetAt(5);
+                    numHoja++;
+                    LOGGER.info("Hoja seleccionada Componentes comportamentales comunes :{}", 1);
+                    sheet = workbook.getSheetAt(numHoja);
+
+                    hojaCompCoco(workbook, sheet);
+                    
+                    switch (this.tipoCoco) {
+                        case "A":
+                            
+                            numHoja+=1;
+                            sheet = workbook.getSheetAt(numHoja);
+                            
+                            hojaCompCoas(workbook, sheet);
+                            workbook.removeSheetAt(numHoja+1);
+                            workbook.removeSheetAt(numHoja+1);
+                            break;
+                        case "T":
+                            numHoja+=2;
+                            sheet = workbook.getSheetAt(numHoja);
+                            hojaCompCote(workbook, sheet);
+                            numHoja-=2;
+                            break;
+                        case "P":
+                            numHoja+=3;
+                            sheet = workbook.getSheetAt(numHoja);
+                            hojaCompCopr(workbook, sheet);
+                            numHoja-=2;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    numHoja++;
+                    LOGGER.info("Hoja seleccionada Compromisos de excelencia e innovacion:{}", numHoja);
+                    sheet = workbook.getSheetAt(numHoja);
 
                     hojaCompExin(workbook, sheet);
 
-                    LOGGER.info("Hoja seleccionada Resultados Evaluacion:{}", 6);
-                    sheet = workbook.getSheetAt(6);
+                    numHoja++;
+                    LOGGER.info("Hoja seleccionada Resultados Evaluacion:{}", numHoja);
+                    sheet = workbook.getSheetAt(numHoja);
 
                     hojaConsResu(workbook, sheet);
 

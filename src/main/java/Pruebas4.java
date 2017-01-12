@@ -11,7 +11,10 @@ import net.illustrato.mdl.coco.Evaluadr;
 import net.illustrato.mdl.coco.TimoEval;
 import net.illustrato.mdl.core.Evidenci;
 import net.illustrato.mdl.core.OptuMejo;
+import net.illustrato.mdl.reto.CompAsis;
+import net.illustrato.mdl.reto.CompComu;
 import net.illustrato.mdl.reto.CompExce;
+import net.illustrato.mdl.reto.CondAsoc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -116,6 +119,206 @@ public class Pruebas4 {
 
         ctrlAgre.setListCols(listLa);
 
+        /**
+         * Hoja comportamientos comunes hoja 1
+         *
+         */
+        List<CompComu> listCompComus = new ArrayList<>();
+        List<CondAsoc> listCondAsocs = new ArrayList<>();
+        CompComu compComu = new CompComu();
+
+        compComu.setEncaCocc("Encabezado 1");
+        compComu.setDescCocc("Descripcion encabezado 1");
+
+        CondAsoc condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 2");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 3");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 4");
+        condAsoc.setPuntaje(13);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 5");
+        condAsoc.setPuntaje(14);
+
+        listCondAsocs.add(condAsoc);
+
+        compComu.setListCoas(listCondAsocs);
+
+        compComu.setCompAcep("X");
+        compComu.setCompDese("X");
+        compComu.setCompCrit("X");
+
+        compComu.setPromPunt(5);
+
+        listCompComus.add(compComu);
+
+        compComu = new CompComu();
+
+        compComu.setEncaCocc("Encabezado 1");
+        compComu.setDescCocc("Descripcion encabezado 1");
+        listCondAsocs = new ArrayList<>();
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 6");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 7");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 8");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 9");
+        condAsoc.setPuntaje(13);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 10");
+        condAsoc.setPuntaje(14);
+
+        listCondAsocs.add(condAsoc);
+
+        compComu.setListCoas(listCondAsocs);
+
+        compComu.setCompAcep("X");
+        compComu.setCompDese("X");
+        compComu.setCompCrit("X");
+
+        compComu.setPromPunt(6);
+
+        listCompComus.add(compComu);
+
+        ctrlAgre.setListComus(listCompComus);
+        
+        /**
+         * Comportamiento comportamentales especificos
+         */
+        
+        ctrlAgre.setTipoCoco("A");
+        List<CompAsis> listAsis  = new ArrayList<>();
+        listCondAsocs = new ArrayList<>();
+        CompAsis compAsis = new CompAsis();
+
+        compAsis.setEncaCocc("Encabezado 1");
+        compAsis.setDescCocc("Descripcion encabezado 1");
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 2");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 3");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 4");
+        condAsoc.setPuntaje(13);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 5");
+        condAsoc.setPuntaje(14);
+
+        listCondAsocs.add(condAsoc);
+
+        compAsis.setListCoas(listCondAsocs);
+
+        compAsis.setCompAcep("X");
+        compAsis.setCompDese("X");
+        compAsis.setCompCrit("X");
+
+        compAsis.setPromPunt(5);
+
+        listAsis.add(compAsis);
+
+        compAsis = new CompAsis();
+
+        compAsis.setEncaCocc("Encabezado 1");
+        compAsis.setDescCocc("Descripcion encabezado 1");
+        listCondAsocs = new ArrayList<>();
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 6");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 7");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 8");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 9");
+        condAsoc.setPuntaje(13);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 10");
+        condAsoc.setPuntaje(14);
+
+        listCondAsocs.add(condAsoc);
+
+        compAsis.setListCoas(listCondAsocs);
+
+        compComu.setCompAcep("X");
+        compComu.setCompDese("X");
+        compComu.setCompCrit("X");
+
+        compComu.setPromPunt(6);
+
+        listAsis.add(compAsis);
+
+        ctrlAgre.setListAsis(listAsis);
+
+        /**
+         * Hoja Resultados de la evaluacion
+         */
         List<OptuMejo> listOpme = new ArrayList<>();
         List<Evidenci> listEvid = new ArrayList<>();
 
@@ -242,11 +445,10 @@ public class Pruebas4 {
         ctrlAgre.setSiinRecu("X");
         ctrlAgre.setNoinRecu("X");
         ctrlAgre.setListEvid(listEvid);
-        
+
         //Quinta hoja compromisos de excelencia e innovacion
-        
-        CompExce compExce= new CompExce();
-        
+        CompExce compExce = new CompExce();
+
         compExce.setNombProy("Software para recursos humanos");
         compExce.setObjeEstr("Pruebas Objetivo estrategico");
         compExce.setPlanProb("Planteamiento del problema");
@@ -260,7 +462,7 @@ public class Pruebas4 {
         compExce.setMetaIndi("Metas e indicadores");
         compExce.setPresupue("Presupuestos y costos");
         compExce.setCaliExce(10);
-        
+
         ctrlAgre.setCompExce(compExce);
 
         reporteExcel = ctrlAgre;
