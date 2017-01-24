@@ -271,8 +271,8 @@ public class Pruebas4 {
 
         compAsis = new CompAsis();
 
-        compAsis.setEncaCocc("Encabezado 1");
-        compAsis.setDescCocc("Descripcion encabezado 1");
+        compAsis.setEncaCocc("Encabezado 2");
+        compAsis.setDescCocc("Descripcion encabezado 2");
         listCondAsocs = new ArrayList<>();
         condAsoc = new CondAsoc();
         condAsoc.setDescrpci("Revision 6");
@@ -306,11 +306,60 @@ public class Pruebas4 {
 
         compAsis.setListCoas(listCondAsocs);
 
-        compComu.setCompAcep("X");
-        compComu.setCompDese("X");
-        compComu.setCompCrit("X");
+        compAsis.setCompAcep("X");
+        compAsis.setCompDese("X");
+        compAsis.setCompCrit("X");
 
-        compComu.setPromPunt(6);
+        compAsis.setPromPunt(6);
+
+        listAsis.add(compAsis);
+
+        ctrlAgre.setListAsis(listAsis);
+        
+        
+        
+        compAsis = new CompAsis();
+
+        compAsis.setEncaCocc("Encabezado 3");
+        compAsis.setDescCocc("Descripcion encabezado 3");
+        listCondAsocs = new ArrayList<>();
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 15");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 16");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 17");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 18");
+        condAsoc.setPuntaje(13);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 19");
+        condAsoc.setPuntaje(14);
+
+        listCondAsocs.add(condAsoc);
+
+        compAsis.setListCoas(listCondAsocs);
+
+        compAsis.setCompAcep("X");
+        compAsis.setCompDese("X");
+        compAsis.setCompCrit("X");
+
+        compAsis.setPromPunt(6);
 
         listAsis.add(compAsis);
 
