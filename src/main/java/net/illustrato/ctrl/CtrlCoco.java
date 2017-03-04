@@ -455,7 +455,7 @@ public class CtrlCoco implements Serializable, ReporteExcel {
                     row = sheet.getRow(15);
                     cell = row.getCell(8);
 
-                    cell.setCellValue("EVALUACION DEFINITIVA: " + (timoEval.getEvalParc() != null ? timoEval.getEvalParc() : ""));
+                    cell.setCellValue("EVALUACION PARCIAL: " + (timoEval.getEvalParc() != null ? timoEval.getEvalParc() : ""));
 
                     LOGGER.debug("Se va actualizar la linea 16 celda 3. Valor Fecha Desde: {}", timoEval.getPeriDesd());
                     row = null;

@@ -38,7 +38,7 @@ import org.apache.poi.ss.util.CellRangeAddress;
  * @author adalbertdavidaroca
  */
 public class CtrlAgre implements ReporteExcel, Serializable {
-    
+
     private static final Logger LOGGER = LogManager.getLogger(CtrlAgre.class);
 
     /**
@@ -112,6 +112,11 @@ public class CtrlAgre implements ReporteExcel, Serializable {
      * X Nointerpone recursos
      */
     private String noinRecu;
+
+    /**
+     * fecha
+     */
+    private String fech;
 
     /**
      * Compromisos con la excelencia
@@ -466,7 +471,7 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         }
         LOGGER.debug("el total de puntos esperados {} y el total de puntos logrados ", this.totaPues, this.totaPulo);
     }
-    
+
     private Sheet hojaConsCola(Sheet sheet) throws Exception {
 
         //Registra del archivo de excel
@@ -481,328 +486,328 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         // Fila y columna para 
         int fila = 0;
         int columna = 0;
-        
+
         try {
             LOGGER.debug("llenar informacion del evaluado");
             LOGGER.debug("Se va actualizar la linea 6 celda 3. Valor Nombre Completo: {} ", evaluado.getNombComp());
             row = sheet.getRow(6);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getNombComp());
-            
+
             LOGGER.debug("Se va actualizar la linea 7 celda 3. Valor Registro Laboral: {} ", evaluado.getRegiLabo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(7);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getRegiLabo());
-            
+
             LOGGER.debug("Se va actualizar la linea 8 celda 3. Valor Registro Laboral: {} ", evaluado.getCargo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(8);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getCargo());
-            
+
             LOGGER.debug("Se va actualizar la linea 9 celda 3. Valor Nivel Jerarquico: {} ", evaluado.getNiveJera());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(9);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getNiveJera());
-            
+
             LOGGER.debug("Se va actualizar la linea 10 celda 3. Valor Gerencia: {} ", evaluado.getGerencia());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(10);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getGerencia());
-            
+
             LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor Departamento: {} ", evaluado.getDepartam());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(11);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getDepartam());
-            
+
             LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor Area Funcional: {} ", evaluado.getAreaFunc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(12);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getAreaFunc());
-            
+
             LOGGER.debug("Se va actualizar la linea 11 celda 3. Valor subproceso: {} ", evaluado.getSubProc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(13);
             cell = row.getCell(3);
-            
+
             cell.setCellValue(evaluado.getSubProc());
-            
+
             LOGGER.debug("Se inicia la escritura de evaluador ");
-            
+
             LOGGER.debug("Se va actualizar la linea 6 celda 12. Valor nombre completo: {}", evaluadr.getNombComp());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(6);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getNombComp());
-            
+
             LOGGER.debug("Se va actualizar la linea 7 celda 12. Valor Registro laboral: {}", evaluadr.getRegiLabo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(7);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getRegiLabo());
-            
+
             LOGGER.debug("Se va actualizar la linea 8 celda 12. Valor Cargo: {}", evaluadr.getCargo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(8);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getCargo());
-            
+
             LOGGER.debug("Se va actualizar la linea 9 celda 12. Valor nivel jerarquico: {}", evaluadr.getNiveJera());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(9);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getNiveJera());
-            
+
             LOGGER.debug("Se va actualizar la linea 10 celda 12. Valor gerencia: {}", evaluadr.getGerencia());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(10);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getGerencia());
-            
+
             LOGGER.debug("Se va actualizar la linea 11 celda 12. Valor departamento: {}", evaluadr.getDepartam());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(11);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getDepartam());
-            
+
             LOGGER.debug("Se va actualizar la linea 12 celda 12. Valor area funcional: {}", evaluadr.getAreaFunc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(12);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getAreaFunc());
-            
+
             LOGGER.debug("Se va actualizar la linea 13 celda 12. Valor subproceso: {}", evaluadr.getSubProc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(13);
             cell = row.getCell(12);
-            
+
             cell.setCellValue(evaluadr.getSubProc());
-            
+
             LOGGER.info("Finalizo escritura de evaluador ");
-            
+
             LOGGER.info("Se inicia la escritura de tipos y motivos de evaluacion ");
-            
+
             if (timoEval.getEvalDefi() != null && !timoEval.getEvalDefi().isEmpty()) {
                 isevDefi = true;
             }
-            
+
             if (timoEval.getEvalParc() != null && !timoEval.getEvalParc().isEmpty()) {
                 isevParc = true;
             }
-            
+
             if (isevParc && isevDefi) {
                 throw new Exception("Se debe elegir diligenciar, evaluacion parcial o definitiva. No es posible las dos");
             }
-            
+
             LOGGER.debug("Se va actualizar la linea 15 celda 1. Valor Evaluacion Definitiva: {}", timoEval.getEvalDefi());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(15);
             cell = row.getCell(1);
-            
+
             cell.setCellValue("EVALUACION DEFINITIVA: " + (timoEval.getEvalDefi() != null ? timoEval.getEvalDefi() : ""));
-            
+
             LOGGER.debug("Se va actualizar la linea 15 celda 10. Valor Evaluacion Parcial: {}", timoEval.getEvalParc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(15);
             cell = row.getCell(8);
-            
+
             cell.setCellValue("EVALUACION DEFINITIVA: " + (timoEval.getEvalParc() != null ? timoEval.getEvalParc() : ""));
-            
+
             LOGGER.debug("Se va actualizar la linea 16 celda 3. Valor Fecha Desde: {}", timoEval.getPeriDesd());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(16);
             cell = row.getCell(3);
-            
+
             cell.setCellValue("DESDE: " + (timoEval.getPeriDesd() != null ? timoEval.getPeriDesd() : ""));
-            
+
             LOGGER.debug("Se va actualizar la linea 16 celda 8. Valor Fecha Desde: {}", timoEval.getPeriHast());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(16);
             cell = row.getCell(8);
-            
+
             cell.setCellValue("HASTA: " + (timoEval.getPeriHast() != null ? timoEval.getPeriHast() : ""));
-            
+
             LOGGER.info("Se finaliza la escritura de tipos y motivos de evaluacion ");
-            
+
             LOGGER.info("Se inicia la escritura del proposito principal del cargo ");
-            
+
             LOGGER.debug("Se va actualizar la linea 18 celda 1. Valor  Proposito principal del cargo {}", evaluado.getPrprCarg());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(18);
             cell = row.getCell(1);
-            
+
             cell.setCellValue(evaluado.getPrprCarg());
-            
+
             LOGGER.debug("Se finaliza la escritura del prosposito principal del cargo");
-            
+
             LOGGER.debug("Se inicia la  escritura de los compromisos laborales");
-            
+
             if (listCols.size() > 5) {
                 throw new Exception("El reporte soporta maximo 5 compromisos. Para aceptar compromisos adicionales se debe modifcar la plantilla.");
             }
-            
+
             sumPupe();
-            
+
             fila = 22;
-            
+
             for (CompLabo compLabo : this.listCols) {
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 1. Valor  objetivo estrategico {}", fila, compLabo.getObjeEstr());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
-                
+
                 cell.setCellValue(compLabo.getObjeEstr());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 3. Valor  compromisos del area {}", fila, compLabo.getCompArea());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(3);
-                
+
                 cell.setCellValue(compLabo.getCompArea());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 6. Valor  compromisos funciones cargo {}", fila, compLabo.getCompFuca());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
-                
+
                 cell.setCellValue(compLabo.getCompFuca());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 9. Valor  meta {}", fila, compLabo.getMeta());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(9);
-                
+
                 cell.setCellValue(compLabo.getMeta());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 13. Valor  evidencia {}", fila, compLabo.getEvidencia());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(13);
-                
+
                 cell.setCellValue(compLabo.getEvidencia());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 15. Valor  puntos esperados {}", fila, compLabo.getPupeEspe());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(15);
-                
+
                 cell.setCellValue(compLabo.getPupeEspe());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 17. Valor  puntos logrados {}", fila, compLabo.getPupeLogr());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(17);
-                
+
                 cell.setCellValue(compLabo.getPupeLogr());
-                
+
                 fila++;
-                
+
             }
             LOGGER.info("Fin de la actualizacion de compromisos");
             LOGGER.info("Se procede a la actualizacion de puntajes totales");
-            
+
             LOGGER.debug("Se va actualizar la linea 27 celda 15. Valor  puntos totales esperados {}", this.totaPues);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(27);
             cell = row.getCell(15);
-            
+
             cell.setCellValue(this.totaPues);
-            
+
             LOGGER.debug("Se va actualizar la linea 27 celda 18. Valor  puntos totales logrados {}", this.totaPulo);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(27);
             cell = row.getCell(17);
-            
+
             cell.setCellValue(this.totaPulo);
-            
+
         } catch (Exception e) {
-            
+
             throw new Exception("Se genero un error Compromisos Laborales [" + e.getMessage() + "]");
-            
+
         }
-        
+
         return sheet;
-        
+
     }
-    
+
     private void hojaConsResu(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -815,182 +820,208 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int columna = 0;
         //Fila inicio evidencia
         int filaEvid;
-        
+
         try {
-            
+
             fila = 5;
-            
+
             LOGGER.info("Se inicia con la escritura de las oportunidades de mejora");
-            
-            for (OptuMejo optuMejo : this.listOpme) {
-                
-                if (fila > 8) {
-                    
-                    copyRow(workbook, sheet, fila - 2, fila - 1);
-                    sheet.addMergedRegion(new CellRangeAddress(fila - 1, fila - 1, 1, 4));
-                    sheet.addMergedRegion(new CellRangeAddress(fila - 1, fila - 1, 6, 7));
-                    
+
+            LOGGER.info("Se realiza la creacion de la celda");
+            for (int numeFila = fila; numeFila < this.listOpme.size() + fila; numeFila++) {
+
+                LOGGER.info("Fila {} ", numeFila);
+                if (numeFila > 8) {
+
+                    copyRow(workbook, sheet, numeFila - 2, numeFila - 1);
+                    sheet.addMergedRegion(new CellRangeAddress(numeFila - 1, numeFila - 1, 1, 4));
+                    sheet.addMergedRegion(new CellRangeAddress(numeFila - 1, numeFila - 1, 6, 7));
+
                 }
-                
+
+            }
+
+            LOGGER.info("Terminando de llenar celdas");
+            LOGGER.info("Poblar registros desde {} ", fila);
+
+            for (OptuMejo optuMejo : this.listOpme) {
+
                 LOGGER.debug("Se va actualizar la linea {} celda 1. Valor  Capacitacion tecnica {}", fila, optuMejo.getCapaTecn());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
-                
+
                 cell.setCellValue(optuMejo.getCapaTecn());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 6. Valor  compromisos del area {}", fila, optuMejo.getComporta());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
-                
+
                 cell.setCellValue(optuMejo.getComporta());
-                
+
                 fila++;
-                
+
             }
 
+            LOGGER.info("Termino de poblar el registro hasta {} ", fila);
             //Ajustando los formulario
-            sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));
-            
+            if (fila > 8) {
+                sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));
+            } else {
+                fila = 9;
+            }
+
+            /* sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
+                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));*/
             LOGGER.info("Fin de la escritura de las oportunidades de mejora");
-            
+
             LOGGER.info("Se inicia la escritura de las evidencias   ");
-            
+
             fila += 2;
             filaEvid = fila + 5;
-            
+
             for (Evidenci evidenci : this.listEvid) {
-                
+
                 if (filaEvid < fila) {
                     copyRow(workbook, sheet, fila - 1, fila);
-                    
+
                 }
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 1. Valor Fecha {}", fila, evidenci.getFecha());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
-                
+
                 cell.setCellValue(evidenci.getFecha());
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 6. Valor  compromisos del area {}", fila, evidenci.getDescripc());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(2);
-                
+
                 cell.setCellValue(evidenci.getDescripc());
-                
+
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila, 2, 6));
-                
+
                 fila++;
-                
+
             }
-            
+
             LOGGER.info("Fin de la escritura de las Evidencias");
-            
+
             LOGGER.info("Inicio de escritura de calificaciones");
             //Ajustando los formulario - resultado
-            sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 5));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 2, 2, 5));
-            
+            if (fila > filaEvid) {
+                LOGGER.info("Fila a ejecutar {} ", fila);
+                sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 5));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 2, 2, 5));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 3, fila + 3, 2, 5));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 4, fila + 4, 2, 5));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 6, 7));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 4, 6, 7));
+                //Firma del evaluado ajuste
+                sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 1, 3));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 4, 6));
+
+                //Ajustando recursos
+                sheet.addMergedRegion(new CellRangeAddress(fila + 6, fila + 6, 1, 7));
+
+                sheet.addMergedRegion(new CellRangeAddress(fila + 8, fila + 8, 1, 7));
+                sheet.addMergedRegion(new CellRangeAddress(fila + 10, fila + 10, 1, 7));
+
+            } else {
+                fila = filaEvid + 1;
+                LOGGER.info("Fila a ejecutar {} ", fila);
+            }
+
             LOGGER.debug("Se va actualizar la linea {} celda 2. Valor Excelente {}", fila + 2, this.excelent);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 2);
             cell = row.getCell(2);
-            
+
             cell.setCellValue((this.excelent != null ? this.excelent : ""));
-            
-            sheet.addMergedRegion(new CellRangeAddress(fila + 3, fila + 3, 2, 5));
-            
+
             LOGGER.debug("Se va actualizar la linea {} celda 2. Valor satisfactorio {}", fila + 3, this.satisfac);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 3);
             cell = row.getCell(2);
-            
+
             cell.setCellValue((this.satisfac != null ? this.satisfac : ""));
-            
-            sheet.addMergedRegion(new CellRangeAddress(fila + 4, fila + 4, 2, 5));
-            
+
             LOGGER.debug("Se va actualizar la linea {} celda 2. Valor satisfactorio {}", fila + 4, this.noSatisf);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 4);
             cell = row.getCell(2);
-            
+
             cell.setCellValue((this.noSatisf != null ? this.noSatisf : ""));
 
-            //Ajustando Total  Calificacion en Numero
-            sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 6, 7));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 4, 6, 7));
-            
             LOGGER.debug("Se va actualizar la linea {} celda 2. Valor total calificacion {}", fila + 2, this.numeToca);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 2);
             cell = row.getCell(6);
-            
+
             cell.setCellValue(this.numeToca);
-            
+
             LOGGER.info("Fin de escritura de calificaciones");
-            
+
             LOGGER.info("Inicio de escritura de interposicion de recursos");
 
-            //Firma del evaluado ajuste
-            sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 1, 3));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 4, 6));
-
-            //Ajustando recursos
-            sheet.addMergedRegion(new CellRangeAddress(fila + 6, fila + 6, 1, 7));
-            
             LOGGER.debug("Se va actualizar la linea {} celda 5. Valor si interpone recursos {}", fila + 7, this.siinRecu);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 7);
             cell = row.getCell(6);
-            
+
             cell.setCellValue("SI:" + (this.siinRecu != null ? this.siinRecu : ""));
-            
+
             LOGGER.debug("Se va actualizar la linea {} celda 5. Valor si interpone recursos {}", fila + 7, this.noinRecu);
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila + 7);
             cell = row.getCell(7);
-            
+
             cell.setCellValue("NO:" + (this.noinRecu != null ? this.noinRecu : ""));
-            
+
+            LOGGER.debug("Se va actualizar la linea {} celda 5. Valor si interpone recursos {}", fila + 8, this.getFech());
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(fila + 8);
+            cell = row.getCell(1);
+
+            cell.setCellValue("FECHA:" + (this.getFech() != null ? this.getFech() : ""));
+
             LOGGER.info("Fin de escritura de interposicion de recursos");
 
-            //Ajustando recursos
-            sheet.addMergedRegion(new CellRangeAddress(fila + 8, fila + 8, 1, 7));
-            sheet.addMergedRegion(new CellRangeAddress(fila + 10, fila + 10, 1, 7));
-            
         } catch (Exception e) {
-            
+
             throw new Exception("Se presento un error hojaConsResu [" + e.getMessage() + "]");
-            
+
         }
-        
+
     }
-    
+
     private void hojaCompExin(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -1001,172 +1032,172 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         // Fila y columna para 
         int fila = 5;
         int columna = 0;
-        
+
         try {
             LOGGER.info("Se inicia la escritura de compromisos de excelencia");
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compExce.getNombProy());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getNombProy());
-            
+            LOGGER.info("Actualizo nombre proyecto");
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor objetivo estrategico {}", fila, compExce.getObjeEstr());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getObjeEstr());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor planteamiento  problema {}", fila, compExce.getPlanProb());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getPlanProb());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor descripcion {}", fila, compExce.getDescripc());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getDescripc());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  fundamentos y justificacion  {}", fila, compExce.getFundJust());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getFundJust());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  Objetivo  {}", fila, compExce.getObjetivo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getObjetivo());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  Objetivod  {}", fila, compExce.getUbicacio());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getUbicacio());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  beneficiarios  {}", fila, compExce.getBenefiac());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getBenefiac());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  beneficiarios  {}", fila, compExce.getMetodolo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getMetodolo());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  Cronograma  {}", fila, compExce.getCronogra());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getCronogra());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  Metas  {}", fila, compExce.getMetaIndi());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getMetaIndi());
-            
+
             fila++;
             LOGGER.debug("Se va actualizar la linea {} celda 8. Valor  Presupuesto  {}", fila, compExce.getPresupue());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(fila);
             cell = row.getCell(8);
             cell.setCellValue(compExce.getPresupue());
-            
+
             LOGGER.debug("Se va actualizar la linea 18 celda 15. Valor  calificacion excelencia  {}", compExce.getCaliExce());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(18);
             cell = row.getCell(15);
             cell.setCellValue(compExce.getCaliExce());
-            
+
             LOGGER.debug("Se va actualizar la linea 2 celda 1. Valor  Nombre evaluado {}", evaluado.getNombComp());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(2);
             cell = row.getCell(1);
             cell.setCellValue("NOMBRE DEL TRABAJADOR OFICIAL EVALUADO: " + evaluado.getNombComp());
-            
+
             LOGGER.debug("Se va actualizar la linea 2 celda 1. Valor  Cargo evaluado {}", evaluado.getCargo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(2);
             cell = row.getCell(10);
             cell.setCellValue("CARGO: " + evaluado.getCargo());
-            
+
             LOGGER.debug("Se va actualizar la linea 2 celda 15. Valor  registro laboral {}", evaluado.getRegiLabo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(2);
             cell = row.getCell(15);
             cell.setCellValue("CARGO: " + evaluadr.getRegiLabo());
-            
+
             LOGGER.debug("Se va actualizar la linea 3 celda 1. Valor  Nombre evaluador {}", evaluadr.getNombComp());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(3);
             cell = row.getCell(1);
             cell.setCellValue("NOMBRE DEL EMPLEADO PUBLICO EVALUADOR: " + evaluadr.getNombComp());
-            
+
             LOGGER.debug("Se va actualizar la linea 3 celda 10. Valor  Cargo evaluador {}", evaluadr.getCargo());
             row = null;
             cell = null;
-            
+
             row = sheet.getRow(3);
             cell = row.getCell(10);
             cell.setCellValue("CARGO: " + evaluadr.getCargo());
-            
+
         } catch (Exception e) {
-            
+
             throw new Exception("Se genera error en la hoja compromisos Excelencia [" + e.getMessage() + "]");
-            
+
         }
-        
+
     }
-    
+
     private void hojaCompCoco(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -1179,34 +1210,49 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int fila2 = 6;
         int columna = 0;
         int regNum = 0;
-        
+
         try {
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(1);
+            cell.setCellValue("NOMBRE DEL TRABAJADOR OFICIAL EVALUADO:" + (this.evaluado.getNombComp() != null ? this.evaluado.getNombComp().toUpperCase() : ""));
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(6);
+            cell.setCellValue(this.evaluado.getRegiLabo());
+
             LOGGER.info("Se inicia la escritura de componentes comportamentales comunes");
-            
+
             for (CompComu compComu : listComus) {
                 LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compComu.getEncaCocc());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
                 cell.setCellValue(compComu.getEncaCocc() + " " + compComu.getDescCocc());
-                
+
                 for (CondAsoc condAsoc : compComu.getListCoas()) {
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(2);
                     cell.setCellValue(condAsoc.getDescrpci());
-                    
+
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(3);
                     cell.setCellValue(condAsoc.getPuntaje());
-                    
+
                     fila2++;
                     if (regNum < compComu.getListCoas().size() - 1) {
                         LOGGER.info("Valor origen {} destino {} ", fila2 - 1, fila2);
@@ -1215,38 +1261,38 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                         cell = row.getCell(1);
                         cell.setCellType(Cell.CELL_TYPE_BLANK);
                     }
-                    
+
                     regNum++;
                 }
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(4);
                 cell.setCellValue(compComu.getCompCrit());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(5);
                 cell.setCellValue(compComu.getCompAcep());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
                 cell.setCellValue(compComu.getCompDese());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila2);
                 cell = row.getCell(3);
                 cell.setCellValue(compComu.getPromPunt());
-                
+
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compComu.getListCoas().size() - 1, 1, 1));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compComu.getListCoas().size() - 1, 4, 4));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compComu.getListCoas().size() - 1, 5, 5));
@@ -1259,17 +1305,18 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                 fila2 += 2;
                 fila = fila2;
                 regNum = 0;
-                
+
             }
-            
+            LOGGER.info("Fin de la escritura de componentes comportamentales comunes");
+
         } catch (Exception e) {
-            
+
             throw new Exception("Se genera error en la hoja componentes comportamentales comunes [" + e.getMessage() + "]");
-            
+
         }
-        
+
     }
-    
+
     private void hojaCompCoas(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -1282,36 +1329,51 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int fila2 = 6;
         int regNum = 0;
         int columna = 0;
-        
+
         try {
-            LOGGER.info("Se inicia la escritura de componentes asistenciales comunes");
-            
+
+            LOGGER.info("Se inicia la escritura de componentes asistenciales ");
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(1);
+            cell.setCellValue("NOMBRE DEL TRABAJADOR OFICIAL EVALUADO:" + (this.evaluado.getNombComp() != null ? this.evaluado.getNombComp().toUpperCase() : ""));
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(6);
+            cell.setCellValue(this.evaluado.getRegiLabo());
+
             for (CompAsis compAsis : listAsis) {
-                
+
                 LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compAsis.getEncaCocc());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
                 cell.setCellValue(compAsis.getEncaCocc() + " " + compAsis.getDescCocc());
-                
+
                 for (CondAsoc condAsoc : compAsis.getListCoas()) {
-                    
+
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(2);
                     cell.setCellValue(condAsoc.getDescrpci());
-                    
+
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(3);
                     cell.setCellValue(condAsoc.getPuntaje());
-                    
+
                     fila2++;
                     if (regNum < compAsis.getListCoas().size() - 1) {
                         LOGGER.info("Valor origen {} destino {} ", fila2 - 1, fila2);
@@ -1320,38 +1382,38 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                         cell = row.getCell(1);
                         cell.setCellType(Cell.CELL_TYPE_BLANK);
                     }
-                    
+
                     regNum++;
                 }
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(4);
                 cell.setCellValue(compAsis.getCompCrit());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(5);
                 cell.setCellValue(compAsis.getCompAcep());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
                 cell.setCellValue(compAsis.getCompDese());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila2);
                 cell = row.getCell(3);
                 cell.setCellValue(compAsis.getPromPunt());
-                
+
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compAsis.getListCoas().size() - 1, 1, 1));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compAsis.getListCoas().size() - 1, 4, 4));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compAsis.getListCoas().size() - 1, 5, 5));
@@ -1364,17 +1426,17 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                 fila2 += 2;
                 fila = fila2;
                 regNum = 0;
-                
+
             }
-            
+
         } catch (Exception e) {
-            
-            throw new Exception("Se genera error en la hoja componentes comportamentales Asistenciales [" + e.getMessage() + "]");
-            
+
+            throw new Exception("Se genera error en la hoja componentes comportamentales Asistenciales 1 [" + e.getMessage() + "]");
+
         }
-        
+
     }
-    
+
     private void hojaCompCote(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -1386,77 +1448,97 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int fila = 6;
         int fila2 = 6;
         int columna = 0;
-        int regNum =0;
-        
+        int regNum = 0;
+
         try {
             LOGGER.info("Se inicia la escritura de componentes comportamentales Tecnicos");
-            
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(1);
+            cell.setCellValue("NOMBRE DEL TRABAJADOR OFICIAL EVALUADO:" + (this.evaluado.getNombComp() != null ? this.evaluado.getNombComp().toUpperCase() : ""));
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(6);
+            cell.setCellValue(this.evaluado.getRegiLabo());
+
+            if (this.listTecn == null || this.listTecn.isEmpty()) {
+                LOGGER.error("No hay datos tecnicos para procesar");
+                throw new Exception("No hay datos tecnicos para procesar.");
+            }
+
+            LOGGER.info("Componentes tecnicos {} ", listTecn.size());
             for (CompTecn compTecn : listTecn) {
                 LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compTecn.getEncaCocc());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
-                cell.setCellValue(compTecn.getEncaCocc() + " " + compTecn.getDescCocc());
-                
+                cell.setCellValue((compTecn.getEncaCocc() != null ? compTecn.getEncaCocc() : "") + " " + (compTecn.getDescCocc() != null ? compTecn.getDescCocc() : ""));
+
                 for (CondAsoc condAsoc : compTecn.getListCoas()) {
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(2);
                     cell.setCellValue(condAsoc.getDescrpci());
-                    
+
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(3);
                     cell.setCellValue(condAsoc.getPuntaje());
-                    
+
                     fila2++;
-                    
-                     if (regNum < compTecn.getListCoas().size() - 1) {
+
+                    if (regNum < compTecn.getListCoas().size() - 1) {
                         LOGGER.info("Valor origen {} destino {} ", fila2 - 1, fila2);
                         copyRow(workbook, sheet, fila2 - 1, fila2);
                         row = sheet.getRow(fila2);
                         cell = row.getCell(1);
                         cell.setCellType(Cell.CELL_TYPE_BLANK);
                     }
-                    
+
                     regNum++;
-                    
+
                 }
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(4);
                 cell.setCellValue(compTecn.getCompCrit());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(5);
                 cell.setCellValue(compTecn.getCompAcep());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
                 cell.setCellValue(compTecn.getCompDese());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila2);
                 cell = row.getCell(3);
                 cell.setCellValue(compTecn.getPromPunt());
-                
+
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compTecn.getListCoas().size() - 1, 1, 1));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compTecn.getListCoas().size() - 1, 4, 4));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compTecn.getListCoas().size() - 1, 5, 5));
@@ -1469,17 +1551,17 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                 fila2 += 2;
                 fila = fila2;
                 regNum = 0;
-                
+
             }
-            
+
         } catch (Exception e) {
-            
+
             throw new Exception("Se genera error en la hoja componentes comportamentales Tecnicos [" + e.getMessage() + "]");
-            
+
         }
-        
+
     }
-    
+
     private void hojaCompCopr(Workbook workbook, Sheet sheet) throws Exception {
 
         // Fila de archivo de excel
@@ -1491,38 +1573,57 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int fila = 6;
         int fila2 = 6;
         int columna = 0;
-        
-        int regNum =0 ;
-        
+
+        int regNum = 0;
+
         try {
             LOGGER.info("Se inicia la escritura de componentes comportamentales Profesionales");
-            
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(1);
+            cell.setCellValue("NOMBRE DEL TRABAJADOR OFICIAL EVALUADO:" + (this.evaluado.getNombComp() != null ? this.evaluado.getNombComp() : ""));
+
+            row = null;
+            cell = null;
+
+            row = sheet.getRow(2);
+            cell = row.getCell(6);
+            cell.setCellValue(this.evaluado.getRegiLabo());
+
+            if (listPro == null || listPro.isEmpty()) {
+                LOGGER.error("No hay datos profesionales para procesar");
+                throw new Exception("No hay datos profesionales para procesar.");
+            }
+
             for (CompProf compProf : listPro) {
                 LOGGER.debug("Se va actualizar la linea {} celda 8. Valor Nombre completo {}", fila, compProf.getEncaCocc());
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(1);
                 cell.setCellValue(compProf.getEncaCocc() + " " + compProf.getDescCocc());
-                
+
                 for (CondAsoc condAsoc : compProf.getListCoas()) {
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(2);
                     cell.setCellValue(condAsoc.getDescrpci());
-                    
+
                     row = null;
                     cell = null;
-                    
+
                     row = sheet.getRow(fila2);
                     cell = row.getCell(3);
                     cell.setCellValue(condAsoc.getPuntaje());
-                    
+
                     fila2++;
-                    
+
                     if (regNum < compProf.getListCoas().size() - 1) {
                         LOGGER.info("Valor origen {} destino {} ", fila2 - 1, fila2);
                         copyRow(workbook, sheet, fila2 - 1, fila2);
@@ -1530,38 +1631,38 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                         cell = row.getCell(1);
                         cell.setCellType(Cell.CELL_TYPE_BLANK);
                     }
-                    
+
                     regNum++;
                 }
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(4);
                 cell.setCellValue(compProf.getCompCrit());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(5);
                 cell.setCellValue(compProf.getCompAcep());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila);
                 cell = row.getCell(6);
                 cell.setCellValue(compProf.getCompDese());
-                
+
                 row = null;
                 cell = null;
-                
+
                 row = sheet.getRow(fila2);
                 cell = row.getCell(3);
                 cell.setCellValue(compProf.getPromPunt());
-                
+
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compProf.getListCoas().size() - 1, 1, 1));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compProf.getListCoas().size() - 1, 4, 4));
                 sheet.addMergedRegion(new CellRangeAddress(fila, fila + compProf.getListCoas().size() - 1, 5, 5));
@@ -1574,22 +1675,22 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                 fila2 += 2;
                 fila = fila2;
                 regNum = 0;
-                
+
             }
-            
+
         } catch (Exception e) {
-            
+
             throw new Exception("Se genera error en la hoja componentes comportamentales Tecnicos [" + e.getMessage() + "]");
-            
+
         }
-        
+
     }
-    
+
     @Override
     public void escribirExcel(String pathPlan, String pathDeex, String nombResa) throws Exception {
-        
+
         LOGGER.info("Iniciando escritura del archivo en excel");
-        
+
         LOGGER.debug("Ruta de la plantilla {}", pathPlan);
         LOGGER.debug("Ruta donde se va a escribir la plantilla {} ", pathDeex);
 
@@ -1609,81 +1710,81 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         int numHoja = 0;
         try {
             archOrig = new File(pathPlan);
-            
+
             if (!archOrig.exists()) {
                 LOGGER.debug("Plantilla no existe en la ruta {} ", pathPlan);
                 throw new IOException("La plantilla no existe en la ruta " + pathPlan);
             }
-            
+
             archDest = new File(pathDeex);
-            
+
             if (!archDest.exists()) {
                 LOGGER.debug("Ruta no existe donde se va a depositar el excel {} , se va a crear", pathDeex);
                 archDest.mkdirs();
             }
-            
+
             LOGGER.info("Ruta del archivo a crear {}", pathDefi);
             archDest = new File(pathDefi);
-            
+
             if (!archDest.exists()) {
                 LOGGER.info("No existe el archivo en la ruta  {}, se procede a la creacion ", pathDefi);
                 archDest.createNewFile();
             } else {
-                
+
                 LOGGER.info("el archivo que se requiere crear, ya existe {} se va a recrear", pathDefi);
                 archDest.delete();
                 LOGGER.info("archivo en la ruta {}, borrado", pathDefi);
                 archDest.createNewFile();
-                
+
                 LOGGER.info("archivo en la ruta {}, se vuelve a crear", pathDefi);
-                
+
             }
-            
+
             LOGGER.info("Se inicia con la copia de la plantilla de la ruta {} a la ruta {} ", pathPlan, pathDefi);
             try (FileChannel archTror = new FileInputStream(archOrig).getChannel();
                     FileChannel archTrDe = new FileOutputStream(archDest).getChannel();) {
-                
+
                 archTrDe.transferFrom(archTror, 0, archTror.size());
-                
+
                 LOGGER.info("Termina la copia del archivo");
-                
+
             } catch (Exception e) {
                 LOGGER.info("Se genera un error con la transferencia {} ", e.getMessage());
                 throw new Exception("Error [" + e.getMessage() + "]");
             }
-            
+
             LOGGER.info("Se inicia con el diligenciamiento del formato ");
-            
+
             LOGGER.info("Nombre Archivo {}", archDest.getName());
             if (!archDest.getName().toLowerCase().endsWith("xls")) {
                 throw new Exception("La plantilla debe tener extension xls");
             }
-            
+
             try (FileInputStream fis = new FileInputStream(archDest);
                     Workbook workbook = new HSSFWorkbook(fis);
                     FileOutputStream fos = new FileOutputStream(archDest);) {
-                
+
                 if (workbook != null) {
                     numberOfSheets = workbook.getNumberOfSheets();
                     LOGGER.debug("Numero de hojas {}", numberOfSheets);
-                    
+
                     LOGGER.info("Hoja seleccionada Compromisos laborales:{}", 0);
                     sheet = workbook.getSheetAt(numHoja);
-                    
+
                     hojaConsCola(sheet);
-                    
+
                     numHoja++;
                     LOGGER.info("Hoja seleccionada Componentes comportamentales comunes :{}", 1);
                     sheet = workbook.getSheetAt(numHoja);
-                    
+
                     hojaCompCoco(workbook, sheet);
-                    
+
                     switch (this.tipoCoco) {
                         case "A":
-                            
+
                             numHoja += 1;
                             sheet = workbook.getSheetAt(numHoja);
-                            
+
                             hojaCompCoas(workbook, sheet);
                             workbook.removeSheetAt(numHoja + 1);
                             workbook.removeSheetAt(numHoja + 1);
@@ -1692,46 +1793,52 @@ public class CtrlAgre implements ReporteExcel, Serializable {
                             numHoja += 2;
                             sheet = workbook.getSheetAt(numHoja);
                             hojaCompCote(workbook, sheet);
-                            numHoja -= 2;
+                            workbook.removeSheetAt(numHoja - 1);
+                            numHoja -= 1;
+                            workbook.removeSheetAt(numHoja + 1);
+
                             break;
                         case "P":
                             numHoja += 3;
                             sheet = workbook.getSheetAt(numHoja);
                             hojaCompCopr(workbook, sheet);
-                            numHoja -= 2;
+                            workbook.removeSheetAt(numHoja - 1);
+                            numHoja -= 1;
+                            workbook.removeSheetAt(numHoja - 1);
+                            numHoja -= 1;
                             break;
                         default:
                             break;
                     }
-                    
+
                     numHoja++;
                     LOGGER.info("Hoja seleccionada Compromisos de excelencia e innovacion:{}", numHoja);
                     sheet = workbook.getSheetAt(numHoja);
-                    
+
                     hojaCompExin(workbook, sheet);
-                    
+
                     numHoja++;
                     LOGGER.info("Hoja seleccionada Resultados Evaluacion:{}", numHoja);
                     sheet = workbook.getSheetAt(numHoja);
-                    
+
                     hojaConsResu(workbook, sheet);
-                    
+
                     workbook.write(fos);
-                    
+
                 } else {
                     throw new Exception("No se cargo de manera adecuada el archivo ");
                 }
-                
+
             } catch (Exception e) {
                 System.out.println("" + e.getMessage());
             }
-            
+
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             throw new Exception(e.getMessage());
         }
     }
-    
+
     private Row copyRow(Workbook workbook, Sheet worksheet, int sourceRowNum, int destinationRowNum) {
         // Get the source / new row
         Row newRow = worksheet.getRow(destinationRowNum);
@@ -1784,5 +1891,19 @@ public class CtrlAgre implements ReporteExcel, Serializable {
         }
         return newRow;
     }
-    
+
+    /**
+     * @return the fech
+     */
+    public String getFech() {
+        return fech;
+    }
+
+    /**
+     * @param fech the fech to set
+     */
+    public void setFech(String fech) {
+        this.fech = fech;
+    }
+
 }

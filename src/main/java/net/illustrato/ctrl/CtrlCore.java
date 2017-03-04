@@ -75,6 +75,11 @@ public class CtrlCore implements ReporteExcel, Serializable {
      * X Nointerpone recursos
      */
     private String noinRecu;
+    
+    /**
+     * fecha
+     */
+    private String fech;
 
     /**
      * @return listOpme La lista de oprtunidades de mejora.
@@ -306,15 +311,25 @@ public class CtrlCore implements ReporteExcel, Serializable {
 
                     LOGGER.info("Se inicia con la escritura de las oportunidades de mejora");
 
-                    for (OptuMejo optuMejo : this.listOpme) {
+                    LOGGER.info("Creando las celdas a llenar");
 
-                        if (fila > 8) {
+                    for (int numeFila = fila; numeFila < this.listOpme.size() + fila; numeFila++) {
 
-                            copyRow(workbook, sheet, fila - 2, fila - 1);
-                            sheet.addMergedRegion(new CellRangeAddress(fila - 1, fila - 1, 1, 4));
-                            sheet.addMergedRegion(new CellRangeAddress(fila - 1, fila - 1, 6, 7));
+                        LOGGER.info("Fila {} ", numeFila);
+                        if (numeFila > 8) {
+
+                            copyRow(workbook, sheet, numeFila - 2, numeFila - 1);
+                            sheet.addMergedRegion(new CellRangeAddress(numeFila - 1, numeFila - 1, 1, 4));
+                            sheet.addMergedRegion(new CellRangeAddress(numeFila - 1, numeFila - 1, 6, 7));
 
                         }
+
+                    }
+
+                    LOGGER.info("Terminando de llenar celdas");
+                    LOGGER.info("Poblar registros desde {} ", fila);
+
+                    for (OptuMejo optuMejo : this.listOpme) {
 
                         LOGGER.debug("Se va actualizar la linea {} celda 1. Valor  Capacitacion tecnica {}", fila, optuMejo.getCapaTecn());
                         row = null;
@@ -337,17 +352,25 @@ public class CtrlCore implements ReporteExcel, Serializable {
                         fila++;
 
                     }
-
+                    LOGGER.info("Termino de poblar el registro hasta {} ", fila);
                     //Ajustando los formulario
-                    sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));
+                    if (fila > 8) {
+                        sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));
+                    } else {
+                        fila = 9;
+                    }
 
+                    /* sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
+                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 6));*/
                     LOGGER.info("Fin de la escritura de las oportunidades de mejora");
 
                     LOGGER.info("Se inicia la escritura de las evidencias   ");
 
                     fila += 2;
                     filaEvid = fila + 5;
+
+                    LOGGER.info("Se inicia la creacion de las celdas desde  el registro {}   ", fila);
 
                     for (Evidenci evidenci : this.listEvid) {
 
@@ -384,9 +407,30 @@ public class CtrlCore implements ReporteExcel, Serializable {
 
                     LOGGER.info("Inicio de escritura de calificaciones");
                     //Ajustando los formulario - resultado
-                    sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 5));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 2, 2, 5));
+
+                    /*sheet.addMergedRegion(new CellRangeAddress(fila, fila, 1, 7));*/
+                    if (fila > filaEvid) {
+                        LOGGER.info("Fila a ejecutar {} ", fila);
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 2, 5));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 2, 2, 5));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 3, fila + 3, 2, 5));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 4, fila + 4, 2, 5));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 6, 7));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 4, 6, 7));
+                        //Firma del evaluado ajuste
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 1, 3));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 4, 6));
+
+                        //Ajustando recursos
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 6, fila + 6, 1, 7));
+
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 8, fila + 8, 1, 7));
+                        sheet.addMergedRegion(new CellRangeAddress(fila + 10, fila + 10, 1, 7));
+
+                    } else {
+                        fila = filaEvid + 1;
+                        LOGGER.info("Fila a ejecutar {} ", fila);
+                    }
 
                     LOGGER.debug("Se va actualizar la linea {} celda 2. Valor Excelente {}", fila + 2, this.excelent);
                     row = null;
@@ -397,8 +441,6 @@ public class CtrlCore implements ReporteExcel, Serializable {
 
                     cell.setCellValue((this.excelent != null ? this.excelent : ""));
 
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 3, fila + 3, 2, 5));
-
                     LOGGER.debug("Se va actualizar la linea {} celda 2. Valor satisfactorio {}", fila + 3, this.satisfac);
                     row = null;
                     cell = null;
@@ -408,9 +450,7 @@ public class CtrlCore implements ReporteExcel, Serializable {
 
                     cell.setCellValue((this.satisfac != null ? this.satisfac : ""));
 
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 4, fila + 4, 2, 5));
-
-                    LOGGER.debug("Se va actualizar la linea {} celda 2. Valor satisfactorio {}", fila + 4, this.noSatisf);
+                    LOGGER.debug("Se va actualizar la linea {} celda 3. Valor no satisfactorio {}", fila + 4, this.noSatisf);
                     row = null;
                     cell = null;
 
@@ -420,9 +460,6 @@ public class CtrlCore implements ReporteExcel, Serializable {
                     cell.setCellValue((this.noSatisf != null ? this.noSatisf : ""));
 
                     //Ajustando Total  Calificacion en Numero
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 1, fila + 1, 6, 7));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 2, fila + 4, 6, 7));
-
                     LOGGER.debug("Se va actualizar la linea {} celda 2. Valor total calificacion {}", fila + 2, this.numeToca);
                     row = null;
                     cell = null;
@@ -431,17 +468,10 @@ public class CtrlCore implements ReporteExcel, Serializable {
                     cell = row.getCell(6);
 
                     cell.setCellValue(this.numeToca);
-                    
+
                     LOGGER.info("Fin de escritura de calificaciones");
-                    
+
                     LOGGER.info("Inicio de escritura de interposicion de recursos");
-
-                    //Firma del evaluado ajuste
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 1, 3));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 5, fila + 5, 4, 6));
-
-                    //Ajustando recursos
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 6, fila + 6, 1, 7));
 
                     LOGGER.debug("Se va actualizar la linea {} celda 5. Valor si interpone recursos {}", fila + 7, this.siinRecu);
                     row = null;
@@ -461,12 +491,22 @@ public class CtrlCore implements ReporteExcel, Serializable {
 
                     cell.setCellValue("NO:" + (this.noinRecu != null ? this.noinRecu : ""));
                     
-                     LOGGER.info("Fin de escritura de interposicion de recursos");
+                    
+                     LOGGER.debug("Se va actualizar la linea {} celda 5. Valor si interpone recursos {}", fila + 8, this.fech);
+                     
+                    row = null;
+                    cell = null;
+
+                    row = sheet.getRow(fila + 8);
+                    cell = row.getCell(1);
+
+                    cell.setCellValue("FECHA:" + (this.fech != null ? this.fech : ""));
+                    
+                    
+
+                    LOGGER.info("Fin de escritura de interposicion de recursos");
 
                     //Ajustando recursos
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 8, fila + 8, 1, 7));
-                    sheet.addMergedRegion(new CellRangeAddress(fila + 10, fila + 10, 1, 7));
-
                     workbook.write(fos);
 
                 } else {
@@ -534,6 +574,20 @@ public class CtrlCore implements ReporteExcel, Serializable {
             }
         }
         return newRow;
+    }
+
+    /**
+     * @return the fech
+     */
+    public String getFech() {
+        return fech;
+    }
+
+    /**
+     * @param fech the fech to set
+     */
+    public void setFech(String fech) {
+        this.fech = fech;
     }
 
 }

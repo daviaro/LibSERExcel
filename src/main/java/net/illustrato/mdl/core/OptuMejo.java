@@ -22,6 +22,12 @@ public class OptuMejo  implements Serializable{
      * Descripcion de oportunidad de mejoramiento sobre comportamiento o conducta
      */
     private String comporta;
+    
+    
+    public OptuMejo(){
+        this.capaTecn="";
+        this.comporta="";
+    }
 
     /**
      * @return capaTecn Descripcion de oportunidad de mejora en cuanto a capacidad tecnica.

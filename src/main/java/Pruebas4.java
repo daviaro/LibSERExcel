@@ -14,6 +14,8 @@ import net.illustrato.mdl.core.OptuMejo;
 import net.illustrato.mdl.reto.CompAsis;
 import net.illustrato.mdl.reto.CompComu;
 import net.illustrato.mdl.reto.CompExce;
+import net.illustrato.mdl.reto.CompProf;
+import net.illustrato.mdl.reto.CompTecn;
 import net.illustrato.mdl.reto.CondAsoc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -172,8 +174,8 @@ public class Pruebas4 {
 
         compComu = new CompComu();
 
-        compComu.setEncaCocc("Encabezado 1");
-        compComu.setDescCocc("Descripcion encabezado 1");
+        compComu.setEncaCocc("Encabezado 2");
+        compComu.setDescCocc("Descripcion encabezado 2");
         listCondAsocs = new ArrayList<>();
         condAsoc = new CondAsoc();
         condAsoc.setDescrpci("Revision 6");
@@ -216,13 +218,13 @@ public class Pruebas4 {
         listCompComus.add(compComu);
 
         ctrlAgre.setListComus(listCompComus);
-        
+
         /**
          * Comportamiento comportamentales especificos
          */
-        
-        ctrlAgre.setTipoCoco("A");
-        List<CompAsis> listAsis  = new ArrayList<>();
+        ctrlAgre.setTipoCoco("P");// A para asistencial, P para profesional y T para tecnico
+
+        List<CompAsis> listAsis = new ArrayList<>();
         listCondAsocs = new ArrayList<>();
         CompAsis compAsis = new CompAsis();
 
@@ -315,9 +317,7 @@ public class Pruebas4 {
         listAsis.add(compAsis);
 
         ctrlAgre.setListAsis(listAsis);
-        
-        
-        
+
         compAsis = new CompAsis();
 
         compAsis.setEncaCocc("Encabezado 3");
@@ -365,6 +365,93 @@ public class Pruebas4 {
 
         ctrlAgre.setListAsis(listAsis);
 
+        /*Componentes tecnicos*/
+        List<CompTecn> listTecn = new ArrayList<>();
+        CompTecn compTecn = new CompTecn();
+        compTecn.setDescCocc("Pruebas 1");
+        compTecn.setEncaCocc("Pruebas 2");
+        compTecn.setPromPunt(25);
+
+        listCondAsocs = new ArrayList<>();
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 15");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 16");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 17");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        compTecn.setListCoas(listCondAsocs);
+
+        listTecn.add(compTecn);
+
+        ctrlAgre.setListTecn(listTecn);
+
+        /*Componentes profesionales*/
+        List<CompProf> listProf = new ArrayList<>();
+
+        CompProf compProf = new CompProf();
+        compProf.setCompAcep("pruebas");
+        compProf.setCompCrit("pruebas 2");
+        compProf.setCompDese("pruebas 3");
+        compProf.setDescCocc("pruebas 5");
+        compProf.setEncaCocc("pruebas 6");
+        compProf.setPromPunt(45);
+
+        listCondAsocs = new ArrayList<>();
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 15");
+        condAsoc.setPuntaje(10);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 16");
+        condAsoc.setPuntaje(11);
+
+        listCondAsocs.add(condAsoc);
+
+        condAsoc = new CondAsoc();
+        condAsoc.setDescrpci("Revision 17");
+        condAsoc.setPuntaje(12);
+
+        listCondAsocs.add(condAsoc);
+
+        compProf.setListCoas(listCondAsocs);
+
+        listProf.add(compProf);
+
+        ctrlAgre.setListPro(listProf);
+
+        //Quinta hoja compromisos de excelencia e innovacion
+        CompExce compExce = new CompExce();
+
+        compExce.setNombProy("Software para recursos humanos");
+        compExce.setObjeEstr("Pruebas Objetivo estrategico");
+        compExce.setPlanProb("Planteamiento del problema");
+        compExce.setDescripc("Descripcion del problema o proyecto ");
+        compExce.setFundJust("Fundamentos y justificacion");
+        compExce.setObjetivo("Objetivos ");
+        compExce.setUbicacio("Ubicacion del proyecto");
+        compExce.setBenefiac("Beneficiarios del proyecto");
+        compExce.setMetodolo("Metodologias");
+        compExce.setCronogra("Listado de links");
+        compExce.setMetaIndi("Metas e indicadores");
+        compExce.setPresupue("Presupuestos y costos");
+        compExce.setCaliExce(10);
+
+        ctrlAgre.setCompExce(compExce);
+
         /**
          * Hoja Resultados de la evaluacion
          */
@@ -372,44 +459,44 @@ public class Pruebas4 {
         List<Evidenci> listEvid = new ArrayList<>();
 
         OptuMejo optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 1");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 1");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 2");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 2");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 3");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 3");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 4");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 4");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 5");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 5");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL  6");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 6");
 
         listOpme.add(optuMejo);
 
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 7");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 7");
 
         listOpme.add(optuMejo);
 
@@ -493,26 +580,8 @@ public class Pruebas4 {
 
         ctrlAgre.setSiinRecu("X");
         ctrlAgre.setNoinRecu("X");
+        ctrlAgre.setFech("02-Marzo-2017");
         ctrlAgre.setListEvid(listEvid);
-
-        //Quinta hoja compromisos de excelencia e innovacion
-        CompExce compExce = new CompExce();
-
-        compExce.setNombProy("Software para recursos humanos");
-        compExce.setObjeEstr("Pruebas Objetivo estrategico");
-        compExce.setPlanProb("Planteamiento del problema");
-        compExce.setDescripc("Descripcion del problema o proyecto ");
-        compExce.setFundJust("Fundamentos y justificacion");
-        compExce.setObjetivo("Objetivos ");
-        compExce.setUbicacio("Ubicacion del proyecto");
-        compExce.setBenefiac("Beneficiarios del proyecto");
-        compExce.setMetodolo("Metodologias");
-        compExce.setCronogra("Listado de links");
-        compExce.setMetaIndi("Metas e indicadores");
-        compExce.setPresupue("Presupuestos y costos");
-        compExce.setCaliExce(10);
-
-        ctrlAgre.setCompExce(compExce);
 
         reporteExcel = ctrlAgre;
 

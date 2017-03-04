@@ -40,49 +40,49 @@ public class Pruebas2 {
 
 
         OptuMejo optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 1");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 1");
+
+        listOpme.add(optuMejo);
+        
+        
+        /*optuMejo = new OptuMejo();
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 2");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 2");
+
+        listOpme.add(optuMejo);
+        
+        optuMejo = new OptuMejo();
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 3");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 3");
 
         listOpme.add(optuMejo);
         
         
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
-
-        listOpme.add(optuMejo);
-        
-        optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 4");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 4");
 
         listOpme.add(optuMejo);
         
         
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
-
-        listOpme.add(optuMejo);
-        
-        
-        optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 5");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 5");
 
         listOpme.add(optuMejo);
         
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 6");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 6");
 
         listOpme.add(optuMejo);
         
         optuMejo = new OptuMejo();
-        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL");
-        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada.");
+        optuMejo.setCapaTecn("Mejorar conocimientos sobre base de datos NOSQL 7");
+        optuMejo.setComporta("Mas responsabilidad para los horarios de entrada. 7");
 
-        listOpme.add(optuMejo);
+        listOpme.add(optuMejo);*/
 
         ctrlCore.setListOpme(listOpme);
         
@@ -118,7 +118,7 @@ public class Pruebas2 {
 
         listEvid.add(evidenci);
         
-        evidenci=new Evidenci();
+        /*evidenci=new Evidenci();
         evidenci.setFecha("10-12-2016");
         evidenci.setDescripc("pruebas de la evidencia 6");
 
@@ -163,7 +163,7 @@ public class Pruebas2 {
         evidenci.setFecha("10-12-2016");
         evidenci.setDescripc("pruebas de la evidencia 12");
 
-        listEvid.add(evidenci);
+        listEvid.add(evidenci);*/
         
         ctrlCore.setExcelent("X");
         ctrlCore.setSatisfac("X");
@@ -171,6 +171,7 @@ public class Pruebas2 {
         
         ctrlCore.setSiinRecu("X");
         ctrlCore.setNoinRecu("X");
+        ctrlCore.setFech("28-02-2017");
         ctrlCore.setListEvid(listEvid);
         
         reporteExcel = ctrlCore;
